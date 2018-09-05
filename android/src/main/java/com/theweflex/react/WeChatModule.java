@@ -227,6 +227,10 @@ public class WeChatModule extends ReactContextBaseJavaModule implements IWXAPIEv
             }
         }
 
+        if("weapp".equals(data.getString("type"))){
+            uri = Uri.parse(data.getString("hdImageData"));
+        }
+
         if (uri != null) {
             String typeStr = data.getString("type");
             ResizeOptions resizeOptions = typeStr.equals("weapp") ? new ResizeOptions(512, 512) : new ResizeOptions(128, 128);
